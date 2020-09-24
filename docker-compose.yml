@@ -1,11 +1,12 @@
 version: '3'
 services:
   astrometry:
-    image: "astrometry/develop"
+    image: "astrometry"
     build:
       context: ./
       dockerfile: ./Dockerfile
     stdin_open: true
     tty: true
     volumes:
-      - ./index/:/usr/local/astrometry/data
+      - ${ASTROMETRY_INDEX_DATA}:/usr/local/astrometry/data
+      - ${ASTROMETRY_INPUT_DATA}:/mnt
