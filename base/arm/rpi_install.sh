@@ -6,7 +6,7 @@ apt-get update
 # install utilities
 apt-get install -y git \
                    build-essential gcc-4.4\
-                   python-pip \
+                   python3-pip \
                    wget \
                    nano
 
@@ -15,7 +15,7 @@ apt-get install -y git \
 # export CC=/usr/bin/gcc-4.4
 
 # upgrade pip:
-pip install --upgrade pip
+python3 -m pip install --upgrade pip
 
 # since it's docker:
 apt-get install file \
@@ -29,23 +29,8 @@ apt-get install bzip2 libbz2-dev \
                 libnetpbm10-dev libnetpbm10 netpbm \
                 zlib1g-dev \
                 wcslib-dev wcslib-tools \
-                python-dev python-pil python-numpy python-scipy python-matplotlib python-tk python-astropy \
+                python3-dev python3-pil python3-numpy python3-scipy python3-matplotlib python3-tk python3-astropy \
                 swig
 
 # install cfitsio
 apt-get install libcfitsio-dev libcfitsio-bin
-
-# install NOVA python dependencies:\
-# Moved astropy up to the apt-get section
-echo yes | pip install setuptools\
-                       wheel \
-                       "django==1.7" \
-                       python-openid \
-                       django-openid-auth \
-                       South \
-                       fitsio \
-                       astropy \
-                       simplejson \
-                       social-auth-core \
-                       social-auth-app-django \
-                       gunicorn

@@ -13,18 +13,20 @@ yum update -y
 yum install -y git \
                gcc \
                make \
-               python-pip \
+               python3-pip \
                wget
 
+
 # upgrade pip...
-pip install --upgrade pip
+python3 -m pip install --upgrade pip
 
 # linux utilities missing from docker image:
 yum install -y file \
                lsof \
 
 # install astrometry.net dependencies:
-yum install -y bzip2-devel \
+yum install -y bzip2 \
+               bzip2-devel \
                cairo-devel \
                libjpeg-devel \
                libpng-devel \
@@ -35,17 +37,17 @@ yum install -y bzip2-devel \
                xorg-x11-proto-devel \
                zlib-devel \
                wcslib-devel.x86_64 \
-               python python-devel \
+               python3 python3-devel \
                swig.x86_64
 
 # intall numpy here:
-echo yes | pip install numpy
+echo yes | python3 -m pip install numpy
 
 # install latest cfitsio
 CFITS_URL=http://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio_latest.tar.gz
 curl -L  $CFITS_URL > cfitsio.tar.gz
 tar zxvf cfitsio*.tar.gz
-cd cfitsio
+cd cfitsio*/
 ./configure --prefix=/usr
 make
 make install
@@ -55,21 +57,7 @@ rm -rf cfitsio/
 rm -f cfitsio.tar.gz
 
 # python:
-pip install fitsio astropy
+python3 -m pip install fitsio astropy
 
 # tkinter not present in the docker image:
 yum install -y tkinter
-
-# install NOVA python dependencies:
-echo yes | pip install setuptools\
-                       wheel \
-                       "django==1.7" \
-                       python-openid \
-                       django-openid-auth \
-                       South \
-                       Pillow \
-                       simplejson \
-                       social-auth-core \
-                       matplotlib \
-                       social-auth-app-django \
-                       gunicorn

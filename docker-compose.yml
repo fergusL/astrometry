@@ -1,19 +1,11 @@
 version: '3'
 services:
-  nova:
-    image: "dm90/astrometry:${NOVA_TAG}"
+  astrometry:
+    image: "astrometry/develop"
     build:
       context: ./
       dockerfile: ./Dockerfile
-    ports:
-      - 8000:8000
+    stdin_open: true
+    tty: true
     volumes:
-      # Use one of the two mounting options to add index files:
-      # use this for a docker volume that contains index fiels (preferred):
-      - astrometry_index:/usr/local/astrometry/data
-      # alternatively, use this to mount the index files from a specific directory:
-      # - /Users/Dave/Desktop/astrometry:/usr/local/astrometry/data
-    restart: unless-stopped
-volumes:
-  astrometry_index:
-    external: true
+      - ./index/:/usr/local/astrometry/data
