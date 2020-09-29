@@ -14,7 +14,8 @@ yum install -y git \
                gcc \
                make \
                python3-pip \
-               wget
+               wget \
+               vim
 
 
 # upgrade pip...

@@ -38,5 +38,8 @@ COPY ./index/download_index_files.sh /usr/local/astrometry/bin/
 # ----------------------------------------------
 #                  ENTRYPOINT
 # ----------------------------------------------
+ADD bash_config.sh .
+RUN cat bash_config.sh >> ~/.bashrc
+COPY ./plate_solve_directory.py /
 WORKDIR /
 CMD ["/bin/bash"]

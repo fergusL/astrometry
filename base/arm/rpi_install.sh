@@ -8,7 +8,7 @@ apt-get install -y git \
                    build-essential gcc-4.4\
                    python3-pip \
                    wget \
-                   nano
+                   vim
 
 # link gcc version:
 # ln /usr/bin/gcc-4.4 /usr/bin/gcc
