@@ -4,7 +4,7 @@ import glob, os, sys, time
 import argparse
 import subprocess
 
-from panoptes.utils.images.fits import get_solve_field
+from panoptes.utils.images.fits import get_solve_field, fpack
 
 from multiprocessing import Pool
 from functools import partial
@@ -20,6 +20,8 @@ def solve_field_task(options, fpath):
         fpath (str): The filepath of the file to be processed by solve-field
     """
     try:
+        if fpath.endswith('.fz'):
+            fpath = fpack(fpath, unpack=True, overwrite=True)
         get_solve_field(fpath, **options)
     except subprocess.TimeoutExpired:
         print(f'solve-field timed out on {fpath}.')
