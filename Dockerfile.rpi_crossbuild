@@ -22,6 +22,7 @@ ENV PYTHONPATH="/astrometry.net:${PYTHONPATH}"
 #           POCS UTILS INSTALLATION
 # ----------------------------------------------
 RUN pip install panoptes-utils
+RUN yum -y install fpack
 
 # ----------------------------------------------
 #                   CLEAN UP

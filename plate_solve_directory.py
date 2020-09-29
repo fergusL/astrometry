@@ -42,7 +42,7 @@ if __name__ == "__main__":
             if file.endswith('.fits') or file.endswith('.fits.fz'):
                 fpaths.append(os.path.join(dirpath,file))
 
-    print(fpaths)
+    print(f'Number of files to solve: {fpaths}')
 
     options = {'solve_opts': [
         '--guess-scale',
