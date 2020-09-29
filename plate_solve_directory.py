@@ -30,7 +30,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--path', type=str, default="./", help="Directory to search for files for processing.")
     parser.add_argument('--timeout', type=int, default=30, help="The time out length (S) for each solve-field job.")
-    parser.add_argument('--downsample', type=int, default=10, hepl="Downsample images by an integer factor, makes processing faster")
+    parser.add_argument('--downsample', type=int, default=10, help="Downsample images by an integer factor, makes processing faster")
     parser.add_argument('--scalelow', type=int, default=1, help="Set minimum scale (deg) for solve-field to look for features.")
     parser.add_argument('--scalehigh', type=int, default=2, help="Set maximum scale (deg) for solve-field to look for features.")
     parser.add_argument('--nproc', type=int, default=1, help="Number of processors to use in multiprocessing.")
